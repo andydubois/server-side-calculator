@@ -3,6 +3,7 @@ $(document).ready(onReady);
 function onReady() {
     console.log('jquery is good to go');
     $('#equalsButton').on('click', operation);
+    $('#equalsButton').on('click', makeMathObject);
 }
 let operator = ''
 
@@ -20,4 +21,40 @@ function operation() {
         ans = 'no entry';
     }
     console.log('the operator is', ans);
+    operator = ans;
+    console.log(operator);
+}
+
+function makeMathObject() {
+    let mathObject = {
+        num1: $('#numberOne').val(),
+        num2: $('#numberTwo').val(),
+        symbol: operator,
+    }
+    console.log(mathObject);
+
+    $.ajax({
+        type: 'POST',
+        url: '/mathObjectHere',
+        data: mathObject
+    }).then(function (response) {
+        $('#numberOne').val('');
+        $('#numberTwo').val('');
+    }).catch(function (err) {
+        alert('Error posting math object to server', err);
+    })
+}
+
+function getMathObject() {
+    $.ajax({
+        type: 'GET',
+        url: '/mathObjectHere',
+    }).then(function (response) {
+        let list = $('mathHistory');
+        list.empty();
+
+        for (let i = 0; i < response.length, i++) {
+            list.append(`<li>${response[i].num1}${response[i].symbol}${response[i].num2}</li>`)
+        }
+    })
 }
