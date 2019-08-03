@@ -4,6 +4,7 @@ function onReady() {
     console.log('jquery is good to go');
     $('#equalsButton').on('click', operation);
     $('#equalsButton').on('click', makeMathObject);
+    $('#clearButton').on('click', clearFields);
     getMathObject();
 }
 let operator = ''
@@ -60,4 +61,9 @@ function getMathObject() {
             $('#answer').text(response[response.length - 1].answer);
         }
     })
+}
+
+function clearFields() {
+    $('#numberOne').val('');
+    $('#numberTwo').val('');
 }
