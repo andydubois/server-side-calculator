@@ -56,7 +56,7 @@ function getMathObject() {
         list.empty();
 
         for (let i = 0; i < response.length; i++) {
-            list.prepend(`<li>${response[i].num1}${response[i].symbol}${response[i].num2}=${response[i].answer}</li>`);
+            list.prepend(`<li>${response[i].num1}${response[i].symbol}${response[i].num2}=<span class ="historyAnswer">${response[i].answer}</span></li>`);
             $('#answer').text(response[response.length - 1].answer);
         }
     })

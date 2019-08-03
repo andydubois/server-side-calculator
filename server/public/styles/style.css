@@ -1,0 +1,18 @@
+.lastAnswer {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.historyAnswer {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.numberOne {
+    display: inline-block;
+}
+
+.container .operator-container {
+    display: inline-block;
+    margin: 0px 0px 0px 0px !important;
+}
