@@ -23,8 +23,17 @@ app.listen(PORT, () => {
 app.post('/mathObjectHere', (req, res) => {
     let mathObject = req.body;
     let answer = ''
-    if (mathObject.symbol === '+') {
-        answer = addinator(parseInt(mathObject.num1), parseInt(mathObject.num2));
+    if (mathObject.symbol === '+') { //checks for addition operator
+        answer = addinator(parseFloat(mathObject.num1), parseFloat(mathObject.num2));
+        mathObject.answer = answer;
+    } else if (mathObject.symbol === '-') { //checks for subtraction operator
+        answer = subtractinator(mathObject.num1, mathObject.num2);
+        mathObject.answer = answer;
+    } else if (mathObject.symbol === '*') { //checks for multiplication operator
+        answer = multiplicator(mathObject.num1, mathObject.num2);
+        mathObject.answer = answer;
+    } else if (mathObject.symbol === '/') { //checks for division operator
+        answer = divisionator(mathObject.num1, mathObject.num2);
         mathObject.answer = answer;
     }
     mathHistoryArray.push(mathObject);
@@ -48,4 +57,12 @@ function addinator(num1, num2) {
 
 function subtractinator(num1, num2) {
     return num1 - num2;
+}
+
+function multiplicator(num1, num2) {
+    return num1 * num2;
+}
+
+function divisionator(num1, num2) {
+    return num1 / num2;
 }
