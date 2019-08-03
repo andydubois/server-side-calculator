@@ -4,6 +4,7 @@ function onReady() {
     console.log('jquery is good to go');
     $('#equalsButton').on('click', operation);
     $('#equalsButton').on('click', makeMathObject);
+    getMathObject();
 }
 let operator = ''
 
@@ -43,6 +44,7 @@ function makeMathObject() {
     }).catch(function (err) {
         alert('Error posting math object to server', err);
     })
+    getMathObject();
 }
 
 function getMathObject() {
@@ -50,10 +52,10 @@ function getMathObject() {
         type: 'GET',
         url: '/mathObjectHere',
     }).then(function (response) {
-        let list = $('mathHistory');
+        let list = $('#mathHistory');
         list.empty();
 
-        for (let i = 0; i < response.length, i++) {
+        for (let i = 0; i < response.length; i++) {
             list.append(`<li>${response[i].num1}${response[i].symbol}${response[i].num2}</li>`)
         }
     })
