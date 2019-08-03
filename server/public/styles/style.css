@@ -1,3 +1,20 @@
+.calc-title {
+    text-align: center;
+}
+
+body {
+    background-image: url(../img/old-calculator.jpg);
+}
+
+.body-wrapper {
+    color: white;
+}
+
+.buttonContainer {
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
 .lastAnswer {
     font-weight: bold;
     font-size: 1.2em;
@@ -8,7 +25,7 @@
     font-size: 1.2em;
 }
 
-.numberOne {
+.numberInput .buttonContainer {
     display: inline-block;
 }
 

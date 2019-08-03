@@ -12,38 +12,45 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 
-<body>
-    <h1>Server Side Calculator</h1>
-    <div id="buttonContainer">
-        <Input class="numberOne" id="numberOne" type="number" placeholder="Number Input One">
-        <div class="operator-container well well-sm">
-            <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-success active">
-                    <input type="radio" name="math" id="addButton" autocomplete="off">
-                    <span class="glyphicon glyphicon-ok">+</span>
-                </label>
+<div class="body-wrapper">
 
-                <label class="btn btn-primary">
-                    <input type="radio" name="math" id="subtractButton" autocomplete="off">
-                    <span class="glyphicon glyphicon-ok">-</span>
-                </label>
-
-                <label class="btn btn-info">
-                    <input type="radio" name="math" id="multiplyButton" autocomplete="off">
-                    <span class="glyphicon glyphicon-ok">*</span>
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="math" id="divideButton" autocomplete="off">
-                    <span class="glyphicon glyphicon-ok">/</span>
-                </label>
+    <body>
+        <h1 class="calc-title">Server Side Calculator</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm"></div>
+                <div class="buttonContainer .col-lg-4" id="buttonContainer">
+                    <div class="operator-container well well-sm">
+                        <Input class="number-input" id="numberOne" type="number" placeholder="Number Input One">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-info active">
+                                <input type="radio" name="math" id="addButton">
+                                <span>+</span>
+                            </label>
+                            <label class="btn btn-secondary">
+                                <input type="radio" name="math" id="subtractButton">
+                                <span class="glyphicon glyphicon-ok">-</span>
+                            </label>
+                            <label class="btn btn-info">
+                                <input type="radio" name="math" id="multiplyButton">
+                                <span class="glyphicon glyphicon-ok">*</span>
+                            </label>
+                            <label class="btn btn-secondary">
+                                <input type="radio" name="math" id="divideButton">
+                                <span class="glyphicon glyphicon-ok">/</span>
+                            </label>
+                        </div>
+                        <input id="numberTwo" class="number-input" type="number" placeholder="Number Input Two">
+                    </div>
+                    <button class="btn-lg btn btn-outline-danger" id="equalsButton">=</button>
+                    <button id="clearButton" class="btn btn-dark">C</button>
+                    <h3>Answer is: <span id="answer" class="lastAnswer"></span></h3>
+                    <ul id="mathHistory"></ul>
+                </div>
+                <div class="col-sm"></div>
             </div>
         </div>
-        <input id="numberTwo" type="number" placeholder="Number Input Two">
-        <button id="equalsButton">=</button>
-        <button id="clearButton">clear</button>
-    </div>
-    <h3>Answer is: <span id="answer" class="lastAnswer"></span></h3>
-    <ul id="mathHistory"></ul>
-</body>
+    </body>
+</div>
 
 </html>
