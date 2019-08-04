@@ -8,6 +8,7 @@
     line-height: 1.2;
     text-align: center;
     margin-bottom: 50px;
+    filter: drop-shadow(2px 2px 2px #17a2b8);
 }
 
 body {

@@ -1,7 +1,10 @@
 $(document).ready(onReady);
 
+//runs when page is finished loading
 function onReady() {
     console.log('jquery is good to go');
+
+    //click listeners
     $('#equalsButton').on('click', operation);
     $('#equalsButton').on('click', makeMathObject);
     $('#clearButton').on('click', clearFields);
@@ -9,7 +12,8 @@ function onReady() {
     getMathObject();
 }
 //global variable used to determine which operator is being used each time equation is entered by user 
-let operator = ''
+let operator = '';
+
 
 
 //determines which operator is being used based on which button was checked in DOM, sets global operator variable value
@@ -33,16 +37,7 @@ function operation() {
 }
 
 
-function required(numInput) {
-    if (num.value.length == 0) {
-        alert("message");
-        return false;
-    }
-    return true;
-}
-
-
-//creates object for each equation to be used for functions server side
+//POST: creates object for each equation to be used for functions server side
 function makeMathObject() {
     //checks if both number input fields are filled out before sending info to server
     if ($('#numberOne').val() === '' || $('#numberTwo').val() === '') {
@@ -72,15 +67,18 @@ function makeMathObject() {
     }
 }
 
-//retrieves math objects from server side with answer computer and prepends equations to DOM underneath inputs.
+
+//GET: retrieves math objects from server side with answer computer and prepends equations to DOM underneath inputs.
 function getMathObject() {
     $.ajax({
         type: 'GET',
         url: '/mathObjectHere',
     }).then(function (response) {
         let list = $('#mathHistory');
-        //clears history
+        let answer = $('#answer');
+        //clears history and answer space
         list.empty();
+        answer.empty();
         //loops through whole math history array and prepends to DOM
         for (let i = 0; i < response.length; i++) {
             list.prepend(`<li>${response[i].num1}${response[i].symbol}${response[i].num2}=<span class ="historyAnswer">${response[i].answer}</span></li>`);
@@ -90,12 +88,8 @@ function getMathObject() {
     console.log("getMathObject function complete")
 }
 
-//function used to clear input fields
-function clearFields() {
-    $('#numberOne').val('');
-    $('#numberTwo').val('');
-}
 
+//DELETE clears math history from server AND DOM
 function clearHistory() {
     $.ajax({
         type: 'DELETE',
@@ -105,5 +99,13 @@ function clearHistory() {
 
         }
     })
+    //retrieves empty history to append to DOM
     getMathObject();
+}
+
+
+//function used to clear input fields
+function clearFields() {
+    $('#numberOne').val('');
+    $('#numberTwo').val('');
 }

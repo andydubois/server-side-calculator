@@ -49,6 +49,7 @@ app.get('/mathObjectHere', (req, res) => {
     res.send(mathHistoryArray);
 })
 
+//DELETE request that sets mathHistoryArray to empty
 app.delete('/mathObjectHere', (req, res) => {
     mathHistoryArray = [];
     res.sendStatus(201);
