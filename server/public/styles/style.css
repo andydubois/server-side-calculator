@@ -2,6 +2,13 @@
     text-align: center;
 }
 
+.calc-undertitle {
+    font-weight: 300;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
 body {
     background-image: url(../img/old-calculator.jpg);
     background-attachment: fixed;
@@ -9,6 +16,11 @@ body {
 
 .body-wrapper {
     color: white;
+}
+
+.instructionColumn {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
 }
 
 .buttonContainer {
