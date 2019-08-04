@@ -13,6 +13,8 @@ body {
 .buttonContainer {
     background-color: lightgray;
     border-radius: 10px;
+    border: solid darkgrey;
+    color: #565656;
 }
 
 .lastAnswer {

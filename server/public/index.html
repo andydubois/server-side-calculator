@@ -18,10 +18,19 @@
         <h1 class="calc-title">Server Side Calculator</h1>
         <div class="container">
             <div class="row">
-                <div class="col-sm"></div>
+                <div class="col-sm">
+                    <h3>Instructions:</h3>
+                    <ul>
+                        <li>Enter numbers into input fields</li>
+                        <li>Select which operator you would like to use from set of four buttons</li>
+                        <li>Hit "=" button to execute the equation</li>
+                        <li>Click the "C" button to clear input fields</li>
+                    </ul>
+                </div>
                 <div class="buttonContainer .col-lg-4" id="buttonContainer">
                     <div class="operator-container well well-sm">
-                        <Input class="number-input" id="numberOne" type="number" placeholder="Number Input One">
+                        <Input class="number-input" id="numberOne" type="number" placeholder="Number Input One"
+                            required>
                         <div class="btn-group" data-toggle="buttons">
                             <label class="btn btn-info active">
                                 <input type="radio" name="math" id="addButton">

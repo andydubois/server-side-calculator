@@ -3,11 +3,12 @@ const bodyParser = require('body-parser')
 const app = express();
 const PORT = 5000;
 
+//empty array for history of equations to pushed into before being sent to client side
 let mathHistoryArray = [];
 
 // Serve up static files (HTML, CSS, Client JS)
 app.use(express.static('server/public'));
-
+//settings up body parser to be used properly
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -25,7 +26,7 @@ app.post('/mathObjectHere', (req, res) => {
     let answer = ''
     if (mathObject.symbol === '+') { //checks for addition operator
         answer = addinator(parseFloat(mathObject.num1), parseFloat(mathObject.num2));
-        mathObject.answer = answer;
+        mathObject.answer = answer; //creates answer property in object and adds value
     } else if (mathObject.symbol === '-') { //checks for subtraction operator
         answer = subtractinator(mathObject.num1, mathObject.num2);
         mathObject.answer = answer;
@@ -49,7 +50,7 @@ app.get('/mathObjectHere', (req, res) => {
 })
 
 
-//math operation functions
+//math operation functions to calculate numbers sent from client side
 
 function addinator(num1, num2) {
     return num1 + num2;
