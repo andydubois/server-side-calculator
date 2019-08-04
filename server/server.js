@@ -49,6 +49,11 @@ app.get('/mathObjectHere', (req, res) => {
     res.send(mathHistoryArray);
 })
 
+app.delete('/mathObjectHere', (req, res) => {
+    mathHistoryArray = [];
+    res.sendStatus(201);
+})
+
 
 //math operation functions to calculate numbers sent from client side
 

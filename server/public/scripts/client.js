@@ -5,6 +5,7 @@ function onReady() {
     $('#equalsButton').on('click', operation);
     $('#equalsButton').on('click', makeMathObject);
     $('#clearButton').on('click', clearFields);
+    $('#clearHistoryButton').on('click', clearHistory);
     getMathObject();
 }
 //global variable used to determine which operator is being used each time equation is entered by user 
@@ -86,10 +87,23 @@ function getMathObject() {
             $('#answer').text(response[response.length - 1].answer);
         }
     })
+    console.log("getMathObject function complete")
 }
 
 //function used to clear input fields
 function clearFields() {
     $('#numberOne').val('');
     $('#numberTwo').val('');
+}
+
+function clearHistory() {
+    $.ajax({
+        type: 'DELETE',
+        url: '/mathObjectHere',
+        success: function (result) {
+            console.log('Deleted math history!');
+
+        }
+    })
+    getMathObject();
 }

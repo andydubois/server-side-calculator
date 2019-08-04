@@ -4,6 +4,7 @@
 
 body {
     background-image: url(../img/old-calculator.jpg);
+    background-attachment: fixed;
 }
 
 .body-wrapper {
@@ -31,7 +32,20 @@ body {
     display: inline-block;
 }
 
+.answerHeader {
+    text-align: center;
+    border: solid darkgrey;
+}
+
 .container .operator-container {
     display: inline-block;
-    margin: 0px 0px 0px 0px !important;
+}
+
+.clearHistoryContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-sm {
+    width: 35%;
 }

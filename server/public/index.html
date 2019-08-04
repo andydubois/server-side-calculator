@@ -25,6 +25,7 @@
                         <li>Select which operator you would like to use from set of four buttons</li>
                         <li>Hit "=" button to execute the equation</li>
                         <li>Click the "C" button to clear input fields</li>
+                        <li>Click "Clear History" button to clear history of equations from page</li>
                     </ul>
                 </div>
                 <div class="buttonContainer .col-lg-4" id="buttonContainer">
@@ -53,8 +54,11 @@
                     </div>
                     <button class="btn-lg btn btn-outline-danger" id="equalsButton">=</button>
                     <button id="clearButton" class="btn btn-dark">C</button>
-                    <h3>Answer is: <span id="answer" class="lastAnswer"></span></h3>
+                    <h3 class="answerHeader">Answer is: <span id="answer" class="lastAnswer"></span></h3>
                     <ul id="mathHistory"></ul>
+                    <div class="clearHistoryContainer">
+                        <button id="clearHistoryButton" class="btn-sm btn-danger btn-block">Clear History</button>
+                    </div>
                 </div>
                 <div class="col-sm"></div>
             </div>
