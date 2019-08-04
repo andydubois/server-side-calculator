@@ -11,7 +11,7 @@
     filter: drop-shadow(2px 2px 2px #17a2b8);
 }
 
-body {
+.body1 {
     background-image: url(../img/old-calculator.jpg);
     background-attachment: fixed;
 }
@@ -42,13 +42,20 @@ body {
     font-size: 1.2em;
 }
 
-.numberInput .buttonContainer {
+.buttonContainer {
     display: inline-block;
+}
+
+.number-input {
+    border-radius: 5px;
+    margin: 5px;
 }
 
 .answerHeader {
     text-align: center;
     border: solid darkgrey;
+    margin: 10px;
+    border-radius: 5px;
 }
 
 .container .operator-container {
