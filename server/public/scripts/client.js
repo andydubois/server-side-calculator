@@ -11,6 +11,8 @@ function onReady() {
     $('#clearHistoryButton').on('click', clearHistory);
     getMathObject();
 }
+
+
 //global variable used to determine which operator is being used each time equation is entered by user 
 let operator = '';
 
@@ -35,6 +37,7 @@ function operation() {
     operator = ans;
     console.log(operator);
 }
+
 
 
 //POST: creates object for each equation to be used for functions server side
@@ -68,6 +71,7 @@ function makeMathObject() {
 }
 
 
+
 //GET: retrieves math objects from server side with answer computer and prepends equations to DOM underneath inputs.
 function getMathObject() {
     $.ajax({
@@ -89,6 +93,7 @@ function getMathObject() {
 }
 
 
+
 //DELETE clears math history from server AND DOM
 function clearHistory() {
     $.ajax({
@@ -102,6 +107,7 @@ function clearHistory() {
     //retrieves empty history to append to DOM
     getMathObject();
 }
+
 
 
 //function used to clear input fields

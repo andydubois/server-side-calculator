@@ -6,6 +6,7 @@ const PORT = 5000;
 //empty array for history of equations to pushed into before being sent to client side
 let mathHistoryArray = [];
 
+
 // Serve up static files (HTML, CSS, Client JS)
 app.use(express.static('server/public'));
 //settings up body parser to be used properly
@@ -14,10 +15,12 @@ app.use(bodyParser.urlencoded({
 }));
 
 
+
 //opens up PORT 5000 to use for localhost
 app.listen(PORT, () => {
     console.log('Server is running on port', PORT)
 })
+
 
 
 //POST route that receives operations from server side
@@ -43,11 +46,14 @@ app.post('/mathObjectHere', (req, res) => {
 })
 
 
+
 //GET route that send the array of the math history back to client side
 app.get('/mathObjectHere', (req, res) => {
     console.log('in GET /mathObjectHere');
     res.send(mathHistoryArray);
 })
+
+
 
 //DELETE request that sets mathHistoryArray to empty
 app.delete('/mathObjectHere', (req, res) => {
